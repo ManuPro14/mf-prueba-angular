@@ -34,7 +34,6 @@
 						],
 						"scripts": [],
 						"main": "src/main.ts",
-						"extraWebpackConfig": "webpack.config.js",
 						"commonChunk": false
 					},
 					"configurations": {
@@ -75,7 +74,9 @@
 					"options": {
 						"port": 4200,
 						"publicHost": "http://localhost:4200",
-						"watch": true
+						"watch": true,
+						"headers":{"Access-Control-Allow-Origin": "*"},
+						"servePath": "/"
 					}
 				},
 				"extract-i18n": {

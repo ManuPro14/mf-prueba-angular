@@ -1,7 +1,7 @@
 const { withModuleFederation } = require('@angular-architects/module-federation/webpack');
 
 module.exports = withModuleFederation({
-  name: 'mfAngular',
+  name: 'angularRemote',
   filename: 'remoteEntry.js',
   exposes: {
     './UserDetails': './src/app/user-details/user-details.component.ts',

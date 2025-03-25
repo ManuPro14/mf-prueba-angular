@@ -17,7 +17,7 @@ export class UserDetailsComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const username = this.route.snapshot.paramMap.get('username') || 'midudev';
+    const username = this.route.snapshot.paramMap.get('username');
     if (username) {
       this.http.get(`https://api.github.com/users/${username}`).subscribe({
         next: (data) => {
