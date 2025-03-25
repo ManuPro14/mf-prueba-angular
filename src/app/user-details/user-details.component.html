@@ -1,0 +1,33 @@
+<div *ngIf="user" class="user-card flex flex-col items-center justify-center w-full max-w-screen-md min-h-screen-xl mx-auto gap-8 p-8 rounded-xl shadow-lg text-gray-700 mt-2">
+
+  <img [src]="user.avatar_url" alt="Avatar" class="w-xl rounded-xl top-0 "/>
+  <h2 class="text-6xl text-center font-bold">{{ user.name || user.login }}</h2>
+  <p *ngIf="user.bio" class="text-xl text-center italic font-semibold">{{ user.bio }}</p>
+
+
+  <div class="flex gap-8 mt-8 flex-col">
+    <a [routerLink]="['/followers', user.login]" class="pointer-cursor text-green-600 flex flex-col items-center">
+      <p class="text-2xl font-bold">Seguidores</p>
+      <p *ngIf="user.followers > 0" class="text-2xl font-semibold">{{ user.followers }}</p>
+    </a>
+
+    <p *ngIf="user.followers === 0" style="color: #f97316; font-weight: 500;">Sin seguidores</p>
+
+    <div class="text-blue-600 flex flex-col text-2xl items-center">
+      <p class="font-bold">Siguiendo</p>
+      <p *ngIf="user.following > 0" class="">{{ user.following }}</p>
+    </div>
+
+
+    <div class="flex flex-col text-2xl items-center text-purple-600">
+      <p class="font-bold">Repositorios públicos</p>
+      <p *ngIf="user.public_repos > 0" class="">{{ user.public_repos }}</p>
+    </div>
+
+
+  </div>
+</div>
+
+<div *ngIf="!user" style="text-align: center; margin-top: 2rem;">
+  <p style="color: #9ca3af;">Cargando datos del usuario...</p>
+</div>
